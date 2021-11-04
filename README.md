@@ -1,6 +1,4 @@
 # modbus-register-reader
-A python script that loops through the possible connection parameters of a Modbus device to determine which set of parameters will allow you to read from its registers.
-
 This script was written for a Modbus temperature-humidity sensor of which the connection parameters (i.e. baud rate, data bit, parity bit & stop bit) were unknown.
 
 ### Parameters Known For Device
