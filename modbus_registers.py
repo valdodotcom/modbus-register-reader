@@ -9,7 +9,9 @@ stop_bit = [1, 2]
 
 # list of all possible combinations of the parameters above
 all_combinations = list(itertools.product(baud_rate, data_bit, parity_bit, stop_bit))
+
 x = 0
+# loop until parameters are found
 while x != -1:
     for index, combo in enumerate(all_combinations):
         baud = combo[0]
@@ -33,10 +35,12 @@ while x != -1:
                 read = client.read_input_registers(address=1, count=2, unit=1)
                 value = read.registers
                 print(value)
+                # exit the loop
                 x = -1
                 break
             except AttributeError:
                 print("\tWrong parameters")
+                # pause added to prevent overloading of the device
                 time.sleep(5)
                 continue
         else:
